@@ -15,10 +15,6 @@ CREATE TABLE "contacts" (
         "contact_id"
      )
 );
---Import data from contacts.csv
---View table to ensure all the data has been imported correctly
-SELECT * FROM contacts
-
 
 -------------------------------------------------------------------------------------------------
 CREATE TABLE "category" (
@@ -29,10 +25,6 @@ CREATE TABLE "category" (
      )
 );
 
---Import data from contacts.csv
---View table to ensure all the data has been imported correctly
-SELECT * FROM category
-
 -------------------------------------------------------------------
 CREATE TABLE "subcategory" (
     "category_id" VARCHAR(10)   NOT NULL,
@@ -41,10 +33,6 @@ CREATE TABLE "subcategory" (
         "category_id"
      )
 );
-
---Import data from contacts.csv
---View table to ensure all the data has been imported correctly
-SELECT * FROM subcategory
 
 ----------------------------------------------------------------------------
 CREATE TABLE "campaign" (
@@ -66,10 +54,6 @@ CREATE TABLE "campaign" (
         "contact_id"
      )
 );
-
---Import data from contacts.csv
---View table to ensure all the data has been imported correctly
-SELECT * FROM campaign
 ------------------------------------------------
 ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_contacts_id" FOREIGN KEY("contact_id")
 REFERENCES "contacts" ("contact_id");
@@ -79,3 +63,21 @@ REFERENCES "category" ("category_id");
 
 ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_subcategory_id" FOREIGN KEY("subcategory_id")
 REFERENCES "subcategory" ("category_id");
+
+------------------------------------------------
+
+--Import data from contacts.csv
+--View table to ensure all the data has been imported correctly
+SELECT * FROM contacts
+
+--Import data from category.csv
+--View table to ensure all the data has been imported correctly
+SELECT * FROM category
+
+--Import data from subcategory.csv
+--View table to ensure all the data has been imported correctly
+SELECT * FROM subcategory
+
+--Import data from compaign.csv
+--View table to ensure all the data has been imported correctly
+SELECT * FROM campaign
